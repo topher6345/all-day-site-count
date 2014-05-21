@@ -5,7 +5,7 @@ app.run(function(editableOptions) {
 });
 
 function HOMEController($scope,$http){
-    
+
     $scope.getAllKids = function() {
         $http.get('/kids').success(function(data){
             $scope.kids = data;
@@ -18,13 +18,13 @@ function HOMEController($scope,$http){
         });
     };
 
-
+    $scope.getAllKids;
     setInterval($scope.getAllKids,3000);
 
 };
 
 function MSTController($scope,$http){
-   	
+
     $scope.getAllKids = function() {
 	    $http.get('/kids/roster/mst').success(function(data){
 	    	$scope.kids = data;
@@ -47,7 +47,7 @@ function MSTController($scope,$http){
 };
 
 function SCGController($scope,$http){
-    
+
     $scope.getAllKids = function() {
         $http.get('/kids/roster/scg').success(function(data){
             $scope.kids = data;
@@ -64,13 +64,13 @@ function SCGController($scope,$http){
         $http.put('/kids/update', { _id: kidId, current_location: location, confirmed: confirmation,  comments: comments } ).success(function(data){
             console.log(comments);
         });
-    };    
+    };
 
     $scope.getAllKids();
 };
 
 function SOQEController($scope,$http){
-    
+
     $scope.getAllKids = function() {
         $http.get('/kids/roster/soqe').success(function(data){
             $scope.kids = data;
@@ -82,12 +82,12 @@ function SOQEController($scope,$http){
             $scope.getAllKids();
         });
     };
-    
+
     $scope.addComment = function (kidId, location, confirmation, comments) {
         $http.put('/kids/update', { _id: kidId, current_location: location, confirmed: confirmation,  comments: comments } ).success(function(data){
             console.log(comments);
         });
-    };    
+    };
 
     $scope.getAllKids();
 };
