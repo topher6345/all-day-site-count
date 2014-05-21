@@ -1,0 +1,93 @@
+@import "bootstrap";
+
+body {
+	@extend .container;
+}
+
+
+header {
+
+	h1 {
+
+	}
+
+	ul {
+		@text-align:center;
+		@extend .nav;
+		@extend .nav-pills;
+	}
+
+
+
+}
+
+section {
+
+	input {
+		@extend .form-control;
+		margin-bottom: 20px;
+	}
+
+	table {
+		@extend .table;
+		@extend .table-striped;
+		@extend .table-bordered;
+		@extend .table-hover;
+
+		tr {
+			width: 100%;
+		}
+
+		.glyphicon.glyphicon-ok {
+			color: green;
+		}
+
+		.glyphicon.glyphicon-remove {
+			color: red;
+		}
+
+		.text-danger {
+			color: red;
+		}
+
+		.text-success {
+			color: green;
+		}
+	}
+}
+
+.location {
+	@extend .row;
+
+	input {
+		@extend .form-control;
+		margin-bottom: 20px;
+	}
+
+	.left {
+		
+		@extend .col-md-6;
+		@extend .container;
+
+		table {
+			@extend .table;
+			@extend .table-striped;
+			@extend .table-bordered;
+			@extend .table-hover;
+
+		}
+	}
+
+	.right {
+		@extend .col-md-6;
+		@extend .container;
+
+		table {
+			@extend .table;
+			@extend .table-striped;
+			@extend .table-bordered;
+			@extend .table-hover;
+
+		}
+	}
+}

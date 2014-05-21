@@ -1,0 +1,83 @@
+%section(ng-controller="HOMEController" class="admin")
+  %h2 
+    Reservation Report
+  %input(ng-model="searchText" placeholder="Search by Name")
+  %table
+    %tr
+      %th Name 
+      %th ID 
+      %th Location 
+      %th Confirmed       
+      %th Waiting List
+      %th Comments
+    %tr(ng-repeat="data in kids | filter:{ name: searchText , current_location: '!home' }")
+      %td {{data.name}}
+      %td {{data.account_id}}
+      %td {{data.current_location}}
+      %td 
+        %div(ng-if="data.confirmed == true") 
+          %span.glyphicon.glyphicon-ok
+        %div(ng-if="data.confirmed == false")
+          %span.glyphicon.glyphicon-remove      
+      %td
+        %div(ng-if="data.confirmed == false") 
+          %span.glyphicon.glyphicon-ok
+        %div(ng-if="data.confirmed == true")
+          %span.glyphicon.glyphicon-remove
+      %td {{data.comments}}
+    %tr
+      %th  
+      %th 
+      %th
+      %th 
+      %th 
+      %th 
+
+    %tr
+      %th
+      %th
+      %th
+        Subtotal
+      %td
+        {{ (kids| filter:{ confirmed: true }).length }}      
+      %td
+        {{ (kids| filter:{ confirmed: false, current_location: '!home'}).length }}
+      %th 
+
+    %tr
+      %th
+      %th
+      %th
+      %th 
+        Total Count 
+      %th
+        {{ (kids | filter:{ name: searchText , current_location: '!home' }).length }}
+      %th 
+
+    %tr
+      %th
+      %th
+      %th
+      %th      
+        Capacity
+      %th 
+        40
+      %th 
+
+    %tr
+      %th
+      %th
+      %th
+      %th      
+        Over/Under
+      %th 
+        %div(ng-if="40 - (kids | filter:{ name: searchText , current_location: '!home' }).length > 0")
+          %div.text-success
+            {{ 40 - (kids | filter:{ name: searchText , current_location: '!home' }).length }}
+        %div(ng-if="40 - (kids | filter:{ name: searchText , current_location: '!home' }).length <= 0")
+          %div.text-success
+            {{ 40 - (kids | filter:{ name: searchText , current_location: '!home' }).length }}            
+      %th 
+
+:javascript
+  document.getElementById("home").classList.add("active")

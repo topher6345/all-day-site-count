@@ -1,0 +1,71 @@
+%div(ng-controller="SCGController" class="location")
+  %div(class="left")
+    %h2 
+      SCG
+      %span.text-muted {{ (kids| filter:{ current_location: 'home', name: searchText }).length }}
+    %input(ng-model="searchText" placeholder="search")
+    %table(border="1px")
+      %tbody
+        %tr
+          %th Name 
+          %th ID 
+          %th Location 
+          %th
+        %tr(ng-repeat="kid in kids | filter:{current_location: 'home', name: searchText }")
+          %td {{kid.name}}
+          %td {{kid.account_id}}
+          %td {{kid.current_location}}
+          %td
+            %button(ng-click="updateKid(kid._id, 'scg', false)" class="btn btn-small btn-primary")
+              RSVP
+  %div(class="right")
+    %h2 
+      Santa Cruz Gardens 
+    %h3 
+      Waiting List 
+      %span.text-muted {{ (kids| filter:{ current_location: 'scg', confirmed: false }).length }}
+    %table(border="1px")
+      %tbody
+        %tr
+          %th Name 
+          %th ID 
+          %th Location 
+          %th Comments          
+          %th  
+          %th       
+        %tr(ng-repeat="kid in kids | filter: {current_location: 'scg', confirmed: false} ")
+          %td {{kid.name}}
+          %td {{kid.account_id}}
+          %td {{kid.current_location}}
+          %td(editable-text="kid.comments" onaftersave="addComment(kid._id, 'mst', false, $data)") {{kid.comments}}          
+          %td
+            %button(ng-click="updateKid(kid._id, 'scg', true)" class="btn btn-small btn-success")
+              Confirm          
+          %td
+            %button(ng-click="updateKid(kid._id, 'home')" class="btn btn-small btn-danger")
+              Remove          
+    %h3 
+      Confirmed 
+      %span.text-muted {{ (kids| filter:{ current_location: 'scg', confirmed: true }).length }}
+    %table(border="1px")
+      %tbody
+        %tr
+          %th Name 
+          %th ID 
+          %th Location 
+          %th Comments    
+          %th           
+
+        %tr(ng-repeat="kid in kids | filter: {current_location: 'scg', confirmed: true} ")
+          %td {{kid.name}}
+          %td {{kid.account_id}}
+          %td {{kid.current_location}}
+          %td(editable-text="kid.comments" onaftersave="addComment(kid._id, 'mst', true, $data)") {{kid.comments}}          
+          %td
+            %button(ng-click="updateKid(kid._id, 'home', false)" class="btn btn-small btn-danger")
+              Remove
+    %h3 
+      Total 
+      %span.text-muted {{ (kids| filter:{ current_location: 'scg'}).length }}                       
+:javascript
+  document.getElementById("scg").classList.add("active")

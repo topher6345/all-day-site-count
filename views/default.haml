@@ -1,0 +1,23 @@
+!!!
+%html{"ng-app"=>"app"}
+  %head
+  %meta{content: "width=device-width", name: "viewport"}/
+  %script{src: "js/angular.min.js"}
+  %script{src: "js/xeditable.min.js"}
+  %script{src: "js/controllers.js"}
+  %link{href:"stylesheets/style.css",  rel: "stylesheet"}
+  %link{href:"stylesheets/xeditable.css",  rel: "stylesheet"}
+
+  %body
+    %header 
+      %h1 Realtime Daycare Capacity Tracker
+      %ul 
+        %li(id="home")
+          %a(href="/" ) Home
+        %li(id="mst")
+          %a(href="/mst") Main Street
+        %li(id="scg")
+          %a(href="/scg" ) Santa Cruz Gardens
+        %li(id="soqe")
+          %a(href="/soqe" ) Soquel Elementery                  
+    =yield 
