@@ -1,7 +1,6 @@
 # All Day Site Count
 A real time daycare capacity tracker
 
-
 ## Getting started
 
 clone the repository
@@ -9,15 +8,21 @@ clone the repository
 ### Setup MongoDB Environment Variables
 
 export MONGOLAB_DB_NAME=
+
 export MONGOLAB_CONNECTION_URL=
 
-to start server
+### Seed Database
+
+`ruby seed.rb`
+
+### Start Server
 
 `rackup config.ru -p 3000`
 
-to seed database
 
-`ruby seed.rb`
+## Usage
+
+
 
 to watch sass
 

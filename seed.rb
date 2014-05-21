@@ -3,7 +3,7 @@ require 'faker'
 
 ## Set up Object Document Mapper
 Mongoid.configure do |config|
-    config.master = Mongo::DB.new(ENV['MONGOLAB_DB_NAME'], Mongo::Connection.from_uri(ENV['MONGOLAB_CONNECTION_URL']))
+    config.master = Mongo::DB.new(ENV['MONGOLAB_DB_NAME'].to_s, Mongo::Connection.from_uri(ENV['MONGOLAB_CONNECTION_URL'].to_s))
 end
 
 ## Object for our database collection
