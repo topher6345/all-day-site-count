@@ -23,13 +23,13 @@ Kid.all.each do |kid|
 end
 
 40.times do |kid|
-	Kid.create({name: Faker::Name.name, account_id: "#{(rand * 10000).to_i}", roster: "mst", comments: "Comments"})
+	Kid.create({name: Faker::Name.name, account_id: "#{(rand * 10000).to_i}", roster: "mst", comments: Faker::Lorem.sentence(3, true, 4)})
 end
 
 40.times do |kid|
-	Kid.create({name: Faker::Name.name, account_id: "#{(rand * 10000).to_i}", roster: "scg"})
+	Kid.create({name: Faker::Name.name, account_id: "#{(rand * 10000).to_i}", roster: "scg", comments: Faker::Lorem.sentence(3, true, 4)})
 end
 
 40.times do |kid|
-	Kid.create({name: Faker::Name.name, account_id: "#{(rand * 10000).to_i}", roster: "soqe"})
+	Kid.create({name: Faker::Name.name, account_id: "#{(rand * 10000).to_i}", roster: "soqe", comments: Faker::Lorem.sentence(3, true, 4) })
 end

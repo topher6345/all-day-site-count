@@ -18,7 +18,7 @@ function HOMEController($scope,$http){
         });
     };
 
-    $scope.getAllKids;
+    $scope.getAllKids();
     setInterval($scope.getAllKids,3000);
 
 };

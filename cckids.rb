@@ -1,4 +1,4 @@
-# Realtime Attendence Tracker for Campus Kids Connection
+# Realtime Attendence Tracker
 
 ## Libraries
 require 'sinatra'
@@ -63,17 +63,14 @@ end
 
 ### Locations
 
-#### Main Street
 get '/mst' do
   haml :mst, :layout => :default
 end
 
-#### Soquel Elementery
 get '/soqe' do
   haml :soqe, :layout => :default
 end
 
-#### Santa Cruz Gardens
 get '/scg' do
   haml :scg, :layout => :default
 end
