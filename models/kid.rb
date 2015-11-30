@@ -2,7 +2,12 @@ require 'mongoid'
 
 ## Set up Object Document Mapper
 Mongoid.configure do |config|
-  config.master = Mongo::DB.new(ENV['MONGOLAB_DB_NAME'], Mongo::Connection.from_uri(ENV['MONGOLAB_CONNECTION_URL']))
+  config.master = Mongo::DB.new(
+    ENV.fetch('MONGOLAB_DB_NAME') { fail "did not supply mongolab db name" },
+    Mongo::Connection.from_uri(
+      ENV.fetch('MONGOLAB_CONNECTION_URL') { fail "did not supply mongolab connection url"  }
+    )
+  )
 end
 
 ## Object for our database collection
